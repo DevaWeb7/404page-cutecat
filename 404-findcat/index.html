@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 - Heart Particles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%; overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f; color: white;
+    }
+    #particles-js {
+      position: absolute; width: 100%; height: 100%; z-index: 0;
+    }
+    .content {
+      position: relative; z-index: 1; text-align: center; top: 30%;
+    }
+    h1 {
+      font-size: 90px; color: #ff4c60; margin-bottom: 10px;
+    }
+    p {
+      font-size: 20px;
+    }
+    #cat {
+      position: absolute; top: 60%; left: 40%;
+      font-size: 32px; cursor: pointer; z-index: 2;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <div class="content">
+    <h1>404</h1>
+    <p>Find the hidden cat among the hearts!</p>
+  </div>
+
+  <div id="cat">🐱</div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 1000,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "shape": {
+          "type": "polygon",
+          "polygon": { "nb_sides": 6 }
+        },
+        "color": { "value": "#ff4c60" },
+        "opacity": { "value": 0.8, "random": true },
+        "size": { "value": 10, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ff4c60",
+          "opacity": 0.3,
+          "width": 1.2
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "bounce"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": false }
+        },
+        "modes": {
+          "repulse": { "distance": 30, "duration": 0.8 }
+        }
+      },
+      "retina_detect": true
+    });
+
+    document.getElementById("cat").addEventListener("click", () => {
+      alert("You found the hidden cat! 🐾");
+    });
+  </script>
+
+</body>
+</html>
